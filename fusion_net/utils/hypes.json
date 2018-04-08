@@ -1,0 +1,77 @@
+{
+  "arch": {
+    "image_size": 50, 
+    "num_channels": 3, 
+    "num_classes": 2, 
+    "weight": [
+      1, 
+      1
+    ], 
+    "whitening": false
+  }, 
+  "dirs": {
+    "base_path": ".", 
+    "data_dir": ".", 
+    "image_dir": ".", 
+    "output_dir": "."
+  }, 
+  "clip_norm": 1.0, 
+  "data": {
+    "background_color": [
+      255, 
+      0, 
+      0
+    ], 
+    "road_color": [
+      255, 
+      0, 
+      255
+    ], 
+    "train_file": "data_road/train3.txt", 
+    "val_file": "data_road/val3.txt"
+  },
+  "jitter": {
+    "augment_level": 0, 
+    "crop_chance": 0.8, 
+    "fix_shape": false, 
+    "image_height": 384, 
+    "image_width": 1248, 
+    "lower_size": 0.4, 
+    "max_crop": 32, 
+    "random_crop": true, 
+    "random_resize": false, 
+    "res_chance": 0.4, 
+    "reseize_image": false, 
+    "sig": 0.15, 
+    "upper_size": 1.7
+  }, 
+  "logging": {
+    "display_iter": 20, 
+    "eval_iter": 100, 
+    "image_iter": 20000, 
+    "save_iter": 2000, 
+    "write_iter": 100
+  }, 
+  "loss": "xentropy", 
+  "model": {
+    "architecture_file": "../encoder/fcn8_vgg.py", 
+    "evaluator_file": "../evals/kitti_eval.py", 
+    "input_file": "../inputs/kitti_seg_input.py", 
+    "objective_file": "../decoder/kitti_multiloss.py", 
+    "optimizer_file": "../optimizer/generic_optimizer.py"
+  }, 
+  "path": [
+    "../incl"
+  ], 
+  "solver": {
+    "batch_size": 1, 
+    "epsilon": 1e-05, 
+    "learning_rate": 1e-05, 
+    "learning_rate_step": null, 
+    "max_steps": 16000, 
+    "opt": "Adam", 
+    "threads": 4
+  }, 
+  "use_fc_wd": true, 
+  "wd": 0.0005
+}
